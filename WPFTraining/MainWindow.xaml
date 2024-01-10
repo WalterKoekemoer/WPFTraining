@@ -9,6 +9,10 @@
         Width="800"
         FontSize="22">
 
+    <Window.Style>
+        <Style BasedOn="{StaticResource MaterialDesignWindow}" TargetType="{x:Type Window}"/>
+    </Window.Style>
+    
     <Window.DataContext>
         <viewmodels:MainViewModel></viewmodels:MainViewModel>
     </Window.DataContext>
@@ -101,9 +105,10 @@
                     VerticalAlignment="Center" 
                     Height="50" Width="200" 
                     Style="{StaticResource MaterialDesignRevealPasswordBox}"  
-                    HorizontalContentAlignment="Center"/>
+                    HorizontalContentAlignment="Center"
+                    MaxLength="4"/>
                 
-                <DataGrid   
+                <DataGrid   Visibility="{Binding SharedDataModel.Protect, UpdateSourceTrigger=PropertyChanged}"
                             Grid.Row="2"
                             AutoGenerateColumns="False"
                             CanUserAddRows="False"
@@ -112,8 +117,7 @@
                             IsEnabled="True"
                             ItemsSource="{Binding PeopleFound}"
                             Style="{StaticResource MaterialDesignDataGrid}"
-                            VerticalScrollBarVisibility="Auto"
-                          >
+                            VerticalScrollBarVisibility="Auto">
 
                     <DataGrid.CellStyle>
                         <Style BasedOn="{StaticResource MaterialDesignDataGridCell}" TargetType="{x:Type DataGridCell}">

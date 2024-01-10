@@ -19,7 +19,7 @@ namespace WPFTraining
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {        
+    {
         public MainWindow()
         {
             InitializeComponent();
@@ -28,7 +28,12 @@ namespace WPFTraining
         MainViewModel viewModel { get; set; } = new MainViewModel();
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            viewModel.Password = ProtectPassword.Password;
+            if (ProtectPassword.Password == "1234"){
+                viewModel.SharedDataModel.Protect = "Visible"; 
+            } 
+            else {
+                viewModel.SharedDataModel.Protect = "Hidden"; 
+            }
         }
     }
 }
