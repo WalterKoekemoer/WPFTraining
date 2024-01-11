@@ -15,7 +15,7 @@ namespace WPFTraining.Models
         private static SharedDataModel _instance;
 
 
-        public string _protect = "Hidden";
+        private string _protect = "Hidden";
 
         public string Protect { get { return _protect; } set { _protect = value; OnPropertyChanged(); } }
 
@@ -23,7 +23,7 @@ namespace WPFTraining.Models
         {
             get
             {
-                if(_instance == null)
+                if (_instance == null)
                 {
                     lock (_lock)
                     {
