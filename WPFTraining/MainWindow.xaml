@@ -1,22 +1,26 @@
-﻿<Window x:Class="WPFTraining.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPFTraining" xmlns:viewmodels="clr-namespace:WPFTraining.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" 
-        Width="800"
-        FontSize="22">
+﻿<Window
+    x:Class="WPFTraining.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WPFTraining"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:WPFTraining.ViewModels"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
+    FontSize="22"
+    mc:Ignorable="d">
 
     <Window.Style>
-        <Style BasedOn="{StaticResource MaterialDesignWindow}" TargetType="{x:Type Window}"/>
+        <Style BasedOn="{StaticResource MaterialDesignWindow}" TargetType="{x:Type Window}" />
     </Window.Style>
-    
+
     <Window.DataContext>
-        <viewmodels:MainViewModel></viewmodels:MainViewModel>
+        <viewmodels:MainViewModel />
     </Window.DataContext>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -33,16 +37,25 @@
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="User Registration" Grid.Column="1" Grid.Row="1" FontSize="24"></TextBlock>
+        <TextBlock
+            Grid.Row="1"
+            Grid.Column="1"
+            FontSize="24"
+            Text="User Registration" />
 
-        <Border BorderBrush="Gray" BorderThickness="1" Grid.Column="1" Grid.Row="2" CornerRadius="2">
-            <Grid Grid.IsSharedSizeScope="True" Margin="10 10 0 0">
+        <Border
+            Grid.Row="2"
+            Grid.Column="1"
+            BorderBrush="Gray"
+            BorderThickness="1"
+            CornerRadius="2">
+            <Grid Margin="10,10,0,0" Grid.IsSharedSizeScope="True">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="5" />
-                    <ColumnDefinition Width="auto" SharedSizeGroup="Details"/>
-                    <ColumnDefinition Width="150"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="72"/>
+                    <ColumnDefinition Width="auto" SharedSizeGroup="Details" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="72" />
                     <ColumnDefinition Width="5" />
                 </Grid.ColumnDefinitions>
 
@@ -57,25 +70,85 @@
                     <RowDefinition Height="5" />
                 </Grid.RowDefinitions>
 
-                <TextBlock x:Name="Name" Grid.Column="1" Grid.Row="1" FontWeight="SemiBold" Margin="0 0 50 0">Name:</TextBlock>
-                <TextBlock x:Name="Surname" Grid.Column="1" Grid.Row="2" FontWeight="SemiBold">Surname:</TextBlock>
-                <TextBlock x:Name="Cell" Grid.Column="1" Grid.Row="3" FontWeight="SemiBold">Cell:</TextBlock>
-                <TextBlock x:Name="Email" Grid.Column="1" Grid.Row="4" FontWeight="SemiBold">Email:</TextBlock >
+                <TextBlock
+                    x:Name="Name"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="0,0,50,0"
+                    FontWeight="SemiBold">
+                    Name:
+                </TextBlock>
+                <TextBlock
+                    x:Name="Surname"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontWeight="SemiBold">
+                    Surname:
+                </TextBlock>
+                <TextBlock
+                    x:Name="Cell"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    FontWeight="SemiBold">
+                    Cell:
+                </TextBlock>
+                <TextBlock
+                    x:Name="Email"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    FontWeight="SemiBold">
+                    Email:
+                </TextBlock>
 
-                <TextBox Grid.Column="2" Grid.Row="1" Margin="0 0 0 10" Text="{Binding PersonToAdd.Name}" BorderBrush="DarkGray"/>
-                <TextBox Grid.Column="2" Grid.Row="2" Margin="0 0 0 10" Text="{Binding PersonToAdd.Surname}" BorderBrush="DarkGray"/>
-                <TextBox Grid.Column="2" Grid.Row="3" Margin="0 0 0 10" Text="{Binding PersonToAdd.Cell}" BorderBrush="DarkGray"/>
-                <TextBox Grid.Column="2" Grid.Row="4" Margin="0 0 0 10" Text="{Binding PersonToAdd.Email}" BorderBrush="DarkGray"/>
+                <TextBox
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Margin="0,0,0,10"
+                    BorderBrush="DarkGray"
+                    Text="{Binding PersonToAdd.Name}" />
+                <TextBox
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Margin="0,0,0,10"
+                    BorderBrush="DarkGray"
+                    Text="{Binding PersonToAdd.Surname}" />
+                <TextBox
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Margin="0,0,0,10"
+                    BorderBrush="DarkGray"
+                    Text="{Binding PersonToAdd.Cell}" />
+                <TextBox
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    Margin="0,0,0,10"
+                    BorderBrush="DarkGray"
+                    Text="{Binding PersonToAdd.Email}" />
 
-                <Button Content="Save" Grid.Column="4" Grid.Row="6" Command="{Binding SaveCommand}"/>
+                <Button
+                    Grid.Row="6"
+                    Grid.Column="4"
+                    Command="{Binding SaveCommand}"
+                    Content="Save" />
             </Grid>
         </Border>
 
-        <TextBox BorderBrush="DarkGray" Grid.Column="3" Grid.Row="1" Margin="0 0 0 5" Width="150" HorizontalAlignment="Right" Text="{Binding PersonToFind, UpdateSourceTrigger=PropertyChanged}">
+        <TextBox
+            Grid.Row="1"
+            Grid.Column="3"
+            Width="150"
+            Margin="0,0,0,5"
+            HorizontalAlignment="Right"
+            BorderBrush="DarkGray"
+            Text="{Binding PersonToFind, UpdateSourceTrigger=PropertyChanged}">
             <TextBox.Style>
-                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                <Style xmlns:sys="clr-namespace:System;assembly=mscorlib" TargetType="TextBox">
                     <Style.Resources>
-                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                        <VisualBrush
+                            x:Key="CueBannerBrush"
+                            AlignmentX="Left"
+                            AlignmentY="Center"
+                            Stretch="None">
                             <VisualBrush.Visual>
                                 <Label Content="Search" Foreground="LightGray" />
                             </VisualBrush.Visual>
@@ -95,29 +168,38 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
-        
-        <Border Grid.Column="3" Grid.Row ="2" BorderBrush="Gray" BorderThickness="1" CornerRadius="2">
+
+        <Border
+            Grid.Row="2"
+            Grid.Column="3"
+            BorderBrush="Gray"
+            BorderThickness="1"
+            CornerRadius="2">
             <Grid>
-                <PasswordBox 
+                <PasswordBox
                     x:Name="ProtectPassword"
-                    PasswordChanged="PasswordBox_PasswordChanged"   
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Center" 
-                    Height="50" Width="200" 
-                    Style="{StaticResource MaterialDesignRevealPasswordBox}"  
+                    Width="200"
+                    Height="50"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                     HorizontalContentAlignment="Center"
-                    MaxLength="4"/>
-                
-                <DataGrid   Visibility="{Binding SharedDataModel.Protect, UpdateSourceTrigger=PropertyChanged}"
-                            Grid.Row="2"
-                            AutoGenerateColumns="False"
-                            CanUserAddRows="False"
-                            CanUserSortColumns="True"
-                            HorizontalScrollBarVisibility="Auto"
-                            IsEnabled="True"
-                            ItemsSource="{Binding PeopleFound}"
-                            Style="{StaticResource MaterialDesignDataGrid}"
-                            VerticalScrollBarVisibility="Auto">
+                    MaxLength="4"
+                    PasswordChanged="PasswordBox_PasswordChanged"
+                    Style="{StaticResource MaterialDesignRevealPasswordBox}" />
+
+                <DataGrid
+                    Grid.Row="2"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CanUserSortColumns="True"
+                    HorizontalScrollBarVisibility="Auto"
+                    IsEnabled="True"
+                    ItemsSource="{Binding PeopleFound}"
+                    SelectedCellsChanged="DataGrid_SelectedCellsChanged"
+                    SelectionUnit="Cell"
+                    Style="{StaticResource MaterialDesignDataGrid}"
+                    VerticalScrollBarVisibility="Auto"
+                    Visibility="{Binding SharedDataModel.Protect, UpdateSourceTrigger=PropertyChanged}">
 
                     <DataGrid.CellStyle>
                         <Style BasedOn="{StaticResource MaterialDesignDataGridCell}" TargetType="{x:Type DataGridCell}">
@@ -133,10 +215,26 @@
                     </DataGrid.ColumnHeaderStyle>
 
                     <DataGrid.Columns>
-                        <DataGridTextColumn Binding="{Binding Name}" Header="Name" IsReadOnly="True" Width="*" />
-                        <DataGridTextColumn Binding="{Binding Surname}" Header="Surname" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Binding="{Binding Cell}" Header="Cell" IsReadOnly="True" Width="*" />
-                        <DataGridTextColumn Binding="{Binding Email}" Header="Email" IsReadOnly="True" Width="*"/>
+                        <DataGridTextColumn
+                            Width="*"
+                            Binding="{Binding Name}"
+                            Header="Name"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="*"
+                            Binding="{Binding Surname}"
+                            Header="Surname"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="*"
+                            Binding="{Binding Cell}"
+                            Header="Cell"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="*"
+                            Binding="{Binding Email}"
+                            Header="Email"
+                            IsReadOnly="True" />
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
