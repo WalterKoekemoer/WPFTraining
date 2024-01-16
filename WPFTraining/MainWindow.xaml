@@ -205,6 +205,7 @@
                     CanUserSortColumns="True"
                     HorizontalScrollBarVisibility="Auto"
                     IsEnabled="True"
+                    
                     ItemsSource="{Binding PeopleFound}"
                     SelectedCellsChanged="DataGrid_SelectedCellsChanged"
                     SelectionUnit="Cell"
@@ -228,22 +229,22 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Width="*"
-                            Binding="{Binding Name}"
+                            Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
                             Header="Name"
                             IsReadOnly="True" />
                         <DataGridTextColumn
                             Width="*"
-                            Binding="{Binding Surname}"
+                            Binding="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"
                             Header="Surname"
                             IsReadOnly="True" />
                         <DataGridTextColumn
                             Width="*"
-                            Binding="{Binding Cell}"
+                            Binding="{Binding Cell, UpdateSourceTrigger=PropertyChanged}"
                             Header="Cell"
                             IsReadOnly="True" />
                         <DataGridTextColumn
                             Width="*"
-                            Binding="{Binding Email}"
+                            Binding="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
                             Header="Email"
                             IsReadOnly="True" />
                     </DataGrid.Columns>

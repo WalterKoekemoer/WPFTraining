@@ -32,10 +32,12 @@ namespace WPFTraining.Models
             Cell = person.Cell;
             Email = person.Email;
         }
-
+        [Column(TypeName = "varchar(15)")]
         public string Name { get { return _name; } set { _name = value; OnPropertyChanged(); } }
+        [Column(TypeName = "varchar(25)")]
         public string Surname { get { return _surname; } set { _surname = value; OnPropertyChanged(); } }
         [Key]
+        [Column(TypeName = "varchar(10)")]
         public string Cell { get { return _cell; } set { _cell = value; OnPropertyChanged(); } }
         public string Email { get { return _email; } set { _email = value; OnPropertyChanged(); } }
     }

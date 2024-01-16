@@ -99,10 +99,8 @@ namespace WPFTraining.ViewModels
                 PersonToFind = "";
             }
 
-            PersonToAdd.Name = "";
-            PersonToAdd.Surname = "";
-            PersonToAdd.Cell = "";
-            PersonToAdd.Email = "";
+            PersonToAdd = new Person();
+
         }
     }
 }
